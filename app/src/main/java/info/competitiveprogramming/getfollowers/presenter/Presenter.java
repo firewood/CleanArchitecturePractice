@@ -22,5 +22,4 @@ public abstract class Presenter {
      * Called when the presenter is destroied.
      */
     public abstract void destroy();
-
 }

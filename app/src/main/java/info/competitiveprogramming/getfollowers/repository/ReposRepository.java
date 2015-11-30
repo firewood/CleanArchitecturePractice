@@ -12,7 +12,7 @@ import retrofit.client.Response;
 
 public class ReposRepository {
 
-    public interface ReposListCallback{
+    public interface ReposListCallback {
         void onReposListLoaded(Collection<Repos> reposCollection);
         void onError();
     }
@@ -20,12 +20,12 @@ public class ReposRepository {
     private static ReposRepository sReposRepository;
     private GithubApi mApi;
 
-    public ReposRepository(){
+    public ReposRepository() {
         mApi = ApiFactory.createGithubApi();
     }
 
-    public static ReposRepository getRepository(){
-        if(sReposRepository == null){
+    public static ReposRepository getRepository() {
+        if (sReposRepository == null) {
             sReposRepository = new ReposRepository();
         }
         return sReposRepository;

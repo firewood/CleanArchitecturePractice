@@ -14,9 +14,6 @@ import butterknife.InjectView;
 import info.competitiveprogramming.getfollowers.R;
 import info.competitiveprogramming.getfollowers.model.Repos;
 
-/**
- * Created by tomoaki on 7/25/15.
- */
 public class RepoAdapter extends ArrayAdapter<Repos> {
     LayoutInflater mInflater;
     Context mContext;
@@ -28,7 +25,7 @@ public class RepoAdapter extends ArrayAdapter<Repos> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        if(convertView == null) {
+        if (convertView == null) {
             convertView = mInflater.inflate(R.layout.row_repos, null);
         }
         ViewHolder viewHolder = new ViewHolder(convertView);
@@ -37,14 +34,14 @@ public class RepoAdapter extends ArrayAdapter<Repos> {
         return convertView;
     }
 
-    public void bindView(View view, int position, Repos data){
+    public void bindView(View view, int position, Repos data) {
         ViewHolder viewHolder = (ViewHolder) view.getTag();
         viewHolder.nameTv.setText(data.name);
         viewHolder.descTv.setText(data.description);
         viewHolder.urlTv.setText(data.html_url);
     }
 
-    public static class ViewHolder{
+    public static class ViewHolder {
         @InjectView(R.id.repos_description_tv)
         TextView descTv;
         @InjectView(R.id.repos_name_tv)
@@ -52,7 +49,7 @@ public class RepoAdapter extends ArrayAdapter<Repos> {
         @InjectView(R.id.repos_url)
         TextView urlTv;
 
-        ViewHolder(View v){
+        ViewHolder(View v) {
             ButterKnife.inject(this,v);
         }
     }

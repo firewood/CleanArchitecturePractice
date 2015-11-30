@@ -7,7 +7,6 @@ import info.competitiveprogramming.getfollowers.model.Repos;
 import info.competitiveprogramming.getfollowers.repository.ReposRepository;
 
 public class ReposUseCase extends UseCase<String> implements ReposRepository.ReposListCallback {
-
     public interface ReposUserCaseCallback {
         void onReposListLoaded(Collection<Repos> reposCollection);
         void onError();
@@ -18,13 +17,13 @@ public class ReposUseCase extends UseCase<String> implements ReposRepository.Rep
     private PostExecutionThread mThread;
     private ReposUseCase.ReposUserCaseCallback mCallback;
 
-    public ReposUseCase(ReposRepository reposRepository, PostExecutionThread thread){
+    public ReposUseCase(ReposRepository reposRepository, PostExecutionThread thread) {
         mReposRepository = reposRepository;
         mThread = thread;
     }
 
-    public static ReposUseCase getUseCase(ReposRepository reposRepository, PostExecutionThread thread){
-        if(sReposUseCase == null){
+    public static ReposUseCase getUseCase(ReposRepository reposRepository, PostExecutionThread thread) {
+        if (sReposUseCase == null) {
             sReposUseCase = new ReposUseCase(reposRepository, thread);
         }
         return sReposUseCase;
@@ -44,7 +43,7 @@ public class ReposUseCase extends UseCase<String> implements ReposRepository.Rep
         mCallback = callback;
     }
 
-    public void removeCallback(){
+    public void removeCallback() {
         mCallback = null;
     }
 

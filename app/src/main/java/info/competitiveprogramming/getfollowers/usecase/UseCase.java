@@ -17,5 +17,4 @@ public abstract class UseCase<T> {
     }
 
     abstract protected void call(T params);
-
 }

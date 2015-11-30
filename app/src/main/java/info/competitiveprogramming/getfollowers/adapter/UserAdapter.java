@@ -27,15 +27,14 @@ public class UserAdapter extends ArrayAdapter<User> {
         mContext = context;
     }
 
-    public void refresh(Collection<User> dataList){
+    public void refresh(Collection<User> dataList) {
         this.clear();
         this.addAll(dataList);
     }
 
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        if(convertView == null) {
+        if (convertView == null) {
             convertView = mInflater.inflate(R.layout.row_user, null);
         }
         ViewHolder viewHolder = new ViewHolder(convertView);
@@ -44,20 +43,20 @@ public class UserAdapter extends ArrayAdapter<User> {
         return convertView;
     }
 
-    public void bindView(View view, int position, User data){
+    public void bindView(View view, int position, User data) {
         ViewHolder viewHolder = (ViewHolder) view.getTag();
         Glide.with(mContext).load(data.avatar_url).into(viewHolder.mPhoto);
         viewHolder.nameTv.setText(data.login);
         view.setTag(R.id.list_item, data);
     }
 
-    public static class ViewHolder{
+    public static class ViewHolder {
         @InjectView(R.id.photo_riv)
         RoundedImageView mPhoto;
         @InjectView(R.id.name_tv)
         TextView nameTv;
 
-        ViewHolder(View v){
+        ViewHolder(View v) {
             ButterKnife.inject(this, v);
         }
     }

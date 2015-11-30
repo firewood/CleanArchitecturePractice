@@ -5,18 +5,19 @@ import java.util.Collection;
 import info.competitiveprogramming.getfollowers.model.Repos;
 import info.competitiveprogramming.getfollowers.usecase.ReposUseCase;
 
-public class ShowRepoListPresenter extends Presenter implements ReposUseCase.ReposUserCaseCallback{
+public class ShowRepoListPresenter extends Presenter implements ReposUseCase.ReposUserCaseCallback {
 
     private ReposUseCase mReposUseCase;
     private ShowReposView mView;
 
-    public ShowRepoListPresenter(ReposUseCase reposUseCase){
+    public ShowRepoListPresenter(ReposUseCase reposUseCase) {
         mReposUseCase = reposUseCase;
     }
 
-    public void setShowReposView(ShowReposView view){
+    public void setShowReposView(ShowReposView view) {
         mView = view;
     }
+
     @Override
     public void initialize() {
 
@@ -37,7 +38,7 @@ public class ShowRepoListPresenter extends Presenter implements ReposUseCase.Rep
 
     }
 
-    public void getRepos(String user){
+    public void getRepos(String user) {
         mReposUseCase.execute(user, this);
     }
 

@@ -1,15 +1,13 @@
-package info.competitiveprogramming.getfollowers.model;
+package info.competitiveprogramming.getfollowers.cache;
 
 import android.support.v4.util.LruCache;
 
-/**
- * Created by tomoaki on 8/7/15.
- */
-public class SearchMemoryCache {
+import info.competitiveprogramming.getfollowers.model.User;
 
+public class UserMemoryCache {
     private LruCache<String, User> mMap;
 
-    private SearchMemoryCache() {
+    private UserMemoryCache() {
         //100kbを確保
         final int cacheSize = 1024 * 100;
 
@@ -43,11 +41,11 @@ public class SearchMemoryCache {
         }
     }
 
-    private static SearchMemoryCache searchMemoryCache;
+    private static UserMemoryCache searchMemoryCache;
 
-    public static SearchMemoryCache getInstance() {
+    public static UserMemoryCache getInstance() {
         if (searchMemoryCache == null) {
-            searchMemoryCache = new SearchMemoryCache();
+            searchMemoryCache = new UserMemoryCache();
         }
         return searchMemoryCache;
     }

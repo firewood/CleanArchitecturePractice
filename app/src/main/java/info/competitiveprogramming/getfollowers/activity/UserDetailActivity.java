@@ -26,7 +26,7 @@ import info.competitiveprogramming.getfollowers.presenter.ShowRepoListPresenter;
 import info.competitiveprogramming.getfollowers.repository.ReposRepository;
 import info.competitiveprogramming.getfollowers.usecase.ReposUseCase;
 
-public class UserDetailActivity extends AppCompatActivity implements ShowRepoListPresenter.ShowReposView{
+public class UserDetailActivity extends AppCompatActivity implements ShowRepoListPresenter.ShowReposView {
 
     @InjectView(R.id.detail_name_tv)
     TextView mDetailNameTv;
@@ -40,7 +40,7 @@ public class UserDetailActivity extends AppCompatActivity implements ShowRepoLis
     private GithubApi mApi;
     private User mUser;
 
-    public static Intent createIntent(Context context, User user){
+    public static Intent createIntent(Context context, User user) {
         Intent intent = new Intent(context, UserDetailActivity.class);
         intent.putExtra(S.user, user);
         return intent;
@@ -59,8 +59,7 @@ public class UserDetailActivity extends AppCompatActivity implements ShowRepoLis
         initialize();
     }
 
-    private void initialize(){
-
+    private void initialize() {
         //DataSource Layer: RepositoryImpl
         ReposRepository reposRepository = ReposRepository.getRepository();
 
